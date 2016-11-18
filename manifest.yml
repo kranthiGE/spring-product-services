@@ -1,0 +1,6 @@
+---
+applications:
+- name: spring-services-sample
+  memory: 512M
+  instances: 1
+  path: target/spring-services-sample-0.0.1-SNAPSHOT.jar
