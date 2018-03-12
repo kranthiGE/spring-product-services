@@ -9,7 +9,7 @@ import ge.springfw.domain.DomainObject;
  */
 public abstract class AbstractMapService  {
     protected Map<Integer, DomainObject> domainMap;
-
+    
     public AbstractMapService() {
         domainMap = new HashMap<>();
         loadDomainObjects();
@@ -20,7 +20,8 @@ public abstract class AbstractMapService  {
     }
 
     public DomainObject getById(Integer id) {
-        return domainMap.get(id);
+    		DomainObject domainObj = domainMap.get(id);
+        return domainObj;
     }
 
     public DomainObject saveOrUpdate(DomainObject domainObject) {
