@@ -10,7 +10,8 @@ Description: Sample project that provides RESTful APIs on products shopstore
 - Java 8 Stream API samples 
 
 #Installing & local setup:
-
+ - docker build --file=Dockerfile \--tag=spring-product-services:latest --rm=true .
+ - docker run -p 8888:8080 -t spring-product-services:latest
 
 URL: 
 
