@@ -1,13 +1,14 @@
 FROM openjdk:8-jdk-alpine
 MAINTAINER kranthikirana
-VOLUME /tmp
+VOLUME /apps
+WORKDIR /apps
+RUN git clone https://github.com/kranthiGE/spring-services-sample.git
 
 FROM maven:3.5-jdk-8-alpine
-WORKDIR /tmp
-COPY --from=0 /apps/spring-services-sample /tmp
+WORKDIR /apps/spring-services-sample
 RUN mvn install
 
-COPY /target/spring-product-services-0.0.1-SNAPSHOT.jar /opt/services/lib/
+COPY /target/spring-product-services-0.0.1-SNAPSHOT.jar /opt/services/
 ENTRYPOINT ["/usr/bin/java"]
-CMD ["-jar", "/opt/services/lib/spring-product-services-0.0.1-SNAPSHOT.jar"]
+CMD ["-jar", "/opt/services/spring-product-services-0.0.1-SNAPSHOT.jar"]
 EXPOSE 8888
