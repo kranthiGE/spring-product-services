@@ -6,7 +6,7 @@ WORKDIR apps/spring-services-sample/
 
 ADD pom.xml pom.xml
 ADD src src
-RUN ["mvn", "package"]
+RUN ["mvn", "clean", "package"]
 
 ENTRYPOINT ["/usr/bin/java"]
 CMD ["-jar", "apps/spring-services-sample/target/spring-product-services-0.0.1-SNAPSHOT.jar"]
