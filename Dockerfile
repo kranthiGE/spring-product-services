@@ -3,10 +3,12 @@ MAINTAINER kranthikirana
 VOLUME /apps
 
 FROM maven:3.5-jdk-8-alpine
-WORKDIR /apps/spring-services-sample
-RUN mvn install
+WORKDIR /opt/services/apps/spring-services-sample/
 
-COPY /target/spring-product-services-0.0.1-SNAPSHOT.jar /opt/services/
+ADD pom.xml pom.xml
+ADD src src
+RUN ["mvn", "package"]
+
 ENTRYPOINT ["/usr/bin/java"]
-CMD ["-jar", "/opt/services/spring-product-services-0.0.1-SNAPSHOT.jar"]
+CMD ["-jar", "/opt/services/apps/spring-product-services/target/spring-product-services-0.0.1-SNAPSHOT.jar"]
 EXPOSE 8888
