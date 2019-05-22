@@ -1,0 +1,19 @@
+{
+  "family": "spring-product-services-v1",
+  "containerDefinitions": [
+    {
+      "name": "spring-product-services",
+      "image": "094592729622.dkr.ecr.ap-south-1.amazonaws.com/spring-product-services:latest",
+      "cpu": 128,
+      "memoryReservation": 128,
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "protocol": "tcp"
+        }
+      ],
+      "command": [],
+      "essential": true
+    }
+  ]
+}
